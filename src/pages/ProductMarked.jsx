@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getProductsThunk } from '../store/slice/products.slice';
@@ -8,6 +8,7 @@ const ProductMarked = () => {
 
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [ count, setCount ] = useState(0)
 
   useEffect(()=>{
     dispatch(getProductsThunk())
@@ -19,6 +20,18 @@ const ProductMarked = () => {
   const relatedProducts = productsList.filter(product => 
     product.category.id === productsFound?.category.id
   )
+  
+  const increment = () => {
+    setCount(count+1)
+  }
+
+  const decrement = () => {
+    if(count == 0) {
+
+    } else {
+    setCount(count-1)
+    } 
+  }
 
   console.log(productsFound);
 
@@ -33,15 +46,22 @@ const ProductMarked = () => {
           </div>
           <div>
             <p>
-              <strong>{productsFound.title}</strong>
+              <strong>{productsFound?.title}</strong>
             </p>
 
             <div>
-              <p>{productsFound.description}</p>
+              <p>{productsFound?.description}</p>
             </div>
 
-            <span>Price: $ {productsFound.price}</span>
+            <span>Price: $ {productsFound?.price}</span>
+            <div className='HomeButton'>
+              <button onClick={()=>increment()}>+</button>
+              <div>{count}</div>
+              <button onClick={()=>decrement()}>-</button>
+            </div>
           </div>
+
+          
         </div>
         <div className='container-two'>
 
