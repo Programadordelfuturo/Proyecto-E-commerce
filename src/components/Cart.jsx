@@ -37,7 +37,7 @@ const Car = () => {
           <div>
             <div>
               <p>{product.title}</p>
-              <p><strong>$ {product.price}</strong></p>
+              <p>$ {product.price}</p>
             </div>
             <div>
               {product.productsInCart.quantity}
