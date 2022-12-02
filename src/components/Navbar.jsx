@@ -1,7 +1,7 @@
 import { Offcanvas } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Car from './cart';
+import Car from './Cart';
 
 const Navbar = () => {
 
