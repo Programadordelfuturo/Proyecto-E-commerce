@@ -21,11 +21,11 @@ function App() {
       {isLoading && <LoadingScreen/>}
       <Routes>
         <Route path='/'element={<Home />}/>
+        <Route path='/login'element={<Login />}/>
         <Route path='/product/:id'element={<ProductMarked />}/>
         <Route element={<ProtectedRoutes />}>
          <Route path='/purchases' element={<Purchases />}/>
         </Route>
-        <Route path='/login'element={<Login />}/>
       </Routes>
     </HashRouter>
   )

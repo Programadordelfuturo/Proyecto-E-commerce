@@ -12,9 +12,8 @@ const Login = () => {
   const submit = (data) => {
     axios.post('https://e-commerce-api.academlo.tech/api/v1/users/login', data)
         .then(res => {
-          navigate("/")
-          console.log(res)
           localStorage.setItem("token", res.data.data.token)
+          navigate("/")
         })
         .catch(error =>{
           if(error.response?.status === 400){
@@ -26,8 +25,11 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='container-form'>
       <Form onSubmit={handleSubmit(submit)}>
+        <p>
+          <strong>LOGIN</strong>
+        </p>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
           <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" {...register("email")}/>
@@ -38,8 +40,8 @@ const Login = () => {
           <input type="password" className="form-control" id="exampleInputPassword1" {...register("password")}/>
         </div>
         <div className="mb-3 form-check">
+          <label className="form-check-label" htmlFor="exampleCheck1">Want to save your password?</label>
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </Form>

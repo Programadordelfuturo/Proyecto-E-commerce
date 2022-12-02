@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+body {
+  background: url(assets/fondo1.jpg);
+  background-size: cover;
+}
+
+img {
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+  padding: 0;
+  margin: 0;
+}
+
 .spinner-overlay {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -50,14 +63,14 @@
 .Navbar{
   width: 100%;
   height: 70px;
-  background: rgba(10, 200, 200, 0.75);
+  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 25px;
-  position: sticky;
-  top: 0;
-  border-bottom: 4px solid rgb(187, 181, 181);
+  position: fixed;
+  border-bottom: 2px solid rgb(187, 181, 181);
+  z-index: 5000
 }
 
 .Navbar > a {
@@ -66,26 +79,45 @@
   font-size: 22px;
 }
 
+.Navbar > div {
+  display: flex;
+}
+
 .Navbar ul {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 100px;
+  gap: 90px;
 }
 
 .Navbar ul a {  
   text-decoration: none;
 }
 
-body {
-  background: green;
+.HomePrincipal {
+  display: grid;
+  place-content: center;
+}
+
+.HomePrincipal > div {
+  padding: 18vh 18vh 0vh 18vh;
+}
+
+.HomePrincipal input {
+  width: 600px;
+  height: 40px;
+}
+
+.HomePrincipal button {
+  width: 60px;
+  height: 40px;
 }
 
 .Home {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 30px;
-  gap: 20px;
+  padding: 40vh 70vh 40vh 70vh;
+  gap: 30px;
 }
 
 .Home a {
@@ -94,7 +126,7 @@ body {
   align-items: center;
   background: rgba(255, 255, 255, 0.75);
   width: 230px;
-  height: 390px;
+  height: 300px;
   border: 4px solid rgba(255, 239, 147, 0.993);
   padding: 20px;
   text-decoration: none;
@@ -120,12 +152,9 @@ body {
 }
 
 .Home a img {
-  transition: all 0.4s;
-  border:3px solid rgba(0, 0, 0, 0.5)
-}
-
-.Home a img:hover{
-  transform: scale(1.1);
+  background: white;
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
 .HomeButton {
@@ -146,23 +175,10 @@ body {
   font-size: 25px;
 }
 
-/* .container {
-  display: flex;
-} */
-
-.container-one{
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 40px;
-}
-
-.container-one div:first-child{
-  width: 400px;
-  height: 250px;
-}
-
-.container-one div:nth-child(2){
-  font-size: 10px;
+.two {
+  font-size: 16px;
+  position: absolute;
+  left: 470px;
 }
 
 .ProductMarked div div {
@@ -173,29 +189,242 @@ body {
   list-style: none; 
 }
 
+.HomeButton {
+  margin-top: 30px;
+}
+
+.HomeButton input {
+  width: 80px;
+  height: 30px;
+}
+
+.HomeButton button{
+  background: red;
+  width: 80px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.container img {
+  border-bottom: 3px solid rgb(196, 190, 190);
+  background: white;
+}
+
+.container-one {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 40px;
+  height: 450px;
+}
+
+.container-one div:first-child{
+  width: 400px;
+  height: 250px;
+}
+
 .container-two {
   margin: 30px;
+  overflow: auto;
+  width: 450px;
 }
 
-.container-two div li {
+.container-data-two {
+  height: 600px;
+  width: 346px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 3px solid red;
-  margin: 20px;
-  display: flex; 
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
 }
 
-.container-two div li a{
+.container-data-two li {
+  border: 3px solid rgb(196, 190, 190);
+  margin: 20px;
+}
+
+.container-data-two li a{
   list-style: none;
   outline: none;
   text-decoration: none;
   color: black;
 }
 
-.container-two div li div {
+.container-data-two li div {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
+}
+
+.container-form {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  font-size: 20px;
+  display: flex;
+  padding: 50px;
+  border: 3px solid transparent;
+  border-radius: 10%;
+  transition: all 0.3s;
+}
+
+.container-form:hover {
+  border: 3px solid black;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 3px 3px 10px 0px;
+}
+
+.container-form p {
+  font-size: 30px;
+  position: relative;
+  bottom: 20px;
+  left: 95px
+}
+
+#emailHelp {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.9)
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  height: 30px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+#exampleCheck1 {
+  margin: 10px 0px;
+}
+
+.btn-primary {
+  width: 60px;
+  height: 30px;
+  position: relative;
+  left: 110px;
+  box-shadow: 3px 3px 10px 0px;
+  border-radius: 15%;
+  outline: none;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: auto;
+  padding: 0px 15px;
+  position: absolute;
+  top: 80px;
+  right: 0px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  transition: all 0.3s;
+  border-radius: 2%;
+  z-index: 6000;
+  box-shadow: 1px 1px 5px 2px;
+}
+
+#sidebar.toggle {
+  right: -355px;
+}
+
+#sidebar div {
+  border-bottom: 2px solid rgb(209, 199, 199);
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar ul li {
+  color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid green;
+}
+
+.purchases {
+  padding: 20vh 70vh 40vh 20vh;
+  list-style: none;
+}
+
+.purchases div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.purchases strong {  
+  font-size: 19px;
+}
+
+.purchases li {
+  border: 3px solid rgb(156, 112, 112);
+  margin: 20px 0px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.purchases li p{
+  margin: 20px;
+  font-size: 18px;
+}
+
+.purchases li>p{
+  border-bottom: 3px solid rgb(156, 112, 112);
+}
+
+.model {
+  color: rgba(56, 33, 156, 0.8);
+  font-size: 17px;
+}
+
+.filter {
+  background: white;
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  left: 0;
+  top: 70px;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.filter-price {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  display: flex;
+}
+
+.filter-price>div{
+  position: absolute;
+  left: 0px;
+  top: 40px;
+}
+
+.filter-price input{
+  width: 170px;
+}
+
+.filter-category {
+  position: absolute;
+  left: 20px;
+  top: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
