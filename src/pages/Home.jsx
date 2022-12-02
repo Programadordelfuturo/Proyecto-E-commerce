@@ -47,7 +47,7 @@ const Home = () => {
         <button>🔍</button>
       </div>
       <div className='Home'>
-        {content?.map((product => (
+        {products?.map((product => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <img src={product.productImgs?.[1]} style={{width: 100, height: 100}} alt="i" />
             <p>{product.title}</p>
